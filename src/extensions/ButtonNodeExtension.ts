@@ -11,6 +11,9 @@ import {
 import Button from '../components/Button';
 
 class ButtonNodeExtension extends NodeExtension {
+  // Static property to disable extra attributes and avoid the error
+  static disableExtraAttributes = true;
+
   get name() {
     return 'buttonSpec' as const;
   }
@@ -20,6 +23,7 @@ class ButtonNodeExtension extends NodeExtension {
   createTags() {
     return [ExtensionTag.InlineNode];
   }
+
   createNodeSpec(): NodeExtensionSpec {
     return {
       inline: true,
@@ -31,7 +35,6 @@ class ButtonNodeExtension extends NodeExtension {
         id: { default: null },
         name: { default: '' },
       },
-      // content: '',
       toDOM: (node) => {
         const attrs: DOMCompatibleAttributes = {
           'data-user-id': node.attrs.id,
@@ -41,13 +44,9 @@ class ButtonNodeExtension extends NodeExtension {
       },
       parseDOM: [
         {
-          attrs: {
-            id: { default: null },
-            name: { default: '' },
-          },
           tag: 'span[data-user-id]',
           getAttrs: (dom) => {
-            const node = dom as HTMLAnchorElement;
+            const node = dom as HTMLSpanElement;
             const id = node.getAttribute('data-user-id');
             const name = node.getAttribute('data-user-name');
 
@@ -61,6 +60,7 @@ class ButtonNodeExtension extends NodeExtension {
     };
   }
 
+  // Command function to append button with content
   @command()
   appendButtonWithContent(obj: { name: string; id: string }): CommandFunction {
     return ({ tr, dispatch }) => {
