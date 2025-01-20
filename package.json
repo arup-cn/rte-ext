@@ -1,8 +1,12 @@
 {
   "name": "rte-ext",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
+  "private": false,
+  "version": "1.0.0",
+  "description": "A custom extension for Remirror",
+  "main": "dist/index.umd.js",
+  "module": "dist/index.es.js",
+  "types": "dist/index.d.ts",
+  "files": ["dist"],
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
@@ -14,7 +18,8 @@
     "@remirror/react": "^3.0.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "remirror": "^3.0.1"
+    "remirror": "^3.0.1",
+    "vite-plugin-dts": "^4.5.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",
@@ -28,5 +33,10 @@
     "typescript": "~5.6.2",
     "typescript-eslint": "^8.18.2",
     "vite": "^6.0.5"
-  }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "author": "Arup Dey",
+  "license": "MIT"
 }
