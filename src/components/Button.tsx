@@ -3,15 +3,25 @@ import CloseIcon from './CloseIcon';
 import { NodeViewComponentProps } from '@remirror/react';
 import '../index.css';
 
-function Button({ node }: NodeViewComponentProps) {
+function Button({ node, getPosition, view }: NodeViewComponentProps) {
   const { name } = node.attrs;
+
+  const handleRemoveNode = () => {
+    const pos = getPosition();
+    if (typeof pos === 'number') {
+      const tr = view.state.tr.delete(pos, pos + node.nodeSize);
+      view.dispatch(tr);
+    } else {
+      console.error('Failed to get position');
+    }
+  };
 
   return (
     <span
       style={{
         display: 'inline-block',
-        borderRadius: '10px',
-        backgroundColor: '#7a7a7a',
+        borderRadius: '6px',
+        backgroundColor: '#444444',
       }}
       contentEditable="false"
       draggable="false"
@@ -34,10 +44,10 @@ function Button({ node }: NodeViewComponentProps) {
             minHeight: '20px',
             minWidth: '20px',
             display: 'flex',
-            backgroundColor: '#282828',
+            backgroundColor: '#363636',
             padding: '4px 8px',
-            borderTopLeftRadius: '12px',
-            borderBottomLeftRadius: '12px',
+            borderTopLeftRadius: '6px',
+            borderBottomLeftRadius: '6px',
           }}
         >
           <DataSetIcon height={20} width={20} />
@@ -51,9 +61,7 @@ function Button({ node }: NodeViewComponentProps) {
             cursor: 'pointer',
             padding: '4px 8px',
           }}
-          onClick={() => {
-            console.log('removed');
-          }}
+          onClick={handleRemoveNode}
         >
           <CloseIcon height={20} width={20} />
         </span>

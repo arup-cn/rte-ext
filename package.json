@@ -1,7 +1,7 @@
 {
   "name": "rte-ext",
   "private": false,
-  "version": "1.0.6",
+  "version": "1.0.8",
   "description": "A custom extension for Remirror",
   "main": "./dist/index.umd.js",
   "module": "./dist/index.es.js",
