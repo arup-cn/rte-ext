@@ -1,8 +1,20 @@
 {
   "name": "rte-ext",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
+  "private": false,
+  "version": "1.1.1",
+  "description": "A custom extension for Remirror",
+  "main": "./dist/index.umd.js",
+  "module": "./dist/index.es.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.es.js",
+      "require": "./dist/index.umd.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
@@ -10,8 +22,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@remirror/pm": "^3.0.0",
+    "@remirror/react": "^3.0.1",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "remirror": "^3.0.1",
+    "vite-plugin-dts": "^4.5.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",
@@ -25,5 +41,18 @@
     "typescript": "~5.6.2",
     "typescript-eslint": "^8.18.2",
     "vite": "^6.0.5"
-  }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "author": "Arup Dey",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/arup-cn/rte-ext"
+  },
+  "bugs": {
+    "url": "https://github.com/arup-cn/rte-ext/issues"
+  },
+  "homepage": "https://github.com/arup-cn/rte-ext#readme"
 }

@@ -66,3 +66,40 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+.element-spec {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #7a7a7a;
+  border-radius: 10px;
+}
+
+.element-spec-content {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+  font-weight: bold;
+  text-transform: capitalize;
+  font-family: 'Rubik', sans-serif;
+  color: #FFF;
+  font-size: 16px !important;
+}
+
+.element-spec-icon {
+  min-height: 20px;
+  min-width: 20px;
+  display: flex;
+  background-color: #282828;
+  padding: 4px 8px;
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+}
+
+.element-close-icon {
+  min-height: 20px;
+  min-width: 20px; 
+  display: flex;
+  cursor: pointer; 
+  padding: 4px 8px;
+}
