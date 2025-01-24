@@ -1,7 +1,7 @@
 {
   "name": "rte-ext",
   "private": false,
-  "version": "1.0.8",
+  "version": "1.1.1",
   "description": "A custom extension for Remirror",
   "main": "./dist/index.umd.js",
   "module": "./dist/index.es.js",
@@ -46,5 +46,13 @@
     "access": "public"
   },
   "author": "Arup Dey",
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/arup-cn/rte-ext"
+  },
+  "bugs": {
+    "url": "https://github.com/arup-cn/rte-ext/issues"
+  },
+  "homepage": "https://github.com/arup-cn/rte-ext#readme"
 }
